@@ -1,0 +1,103 @@
+# AWS Auto Scaling Group Project
+
+## Overview
+Demonstrated the self-healing and dynamic scaling capabilities of AWS 
+EC2 Auto Scaling Groups by manually terminating instances and adjusting 
+desired capacity — proving ASG automatically maintains availability 
+without human intervention.
+
+---
+
+## Architecture
+---
+
+## Services Used
+- Amazon EC2
+- EC2 Auto Scaling Groups
+- Launch Templates
+- Amazon CloudWatch
+- AWS VPC & Subnets
+
+---
+
+## Project Objectives Completed
+
+| Objective | Status |
+|---|---|
+| Create Launch Template (modern replacement for Launch Configuration) | ✅ |
+| Create ASG with minimum 2, maximum 6 instances | ✅ |
+| Terminate one instance manually | ✅ |
+| Verify ASG self-healed by launching replacement | ✅ |
+| Increase desired capacity to 4 instances | ✅ |
+| Delete all resources after completion | ✅ |
+
+---
+
+## Step by Step Process
+
+### 1. Created Launch Template
+- AMI: Amazon Linux 2023
+- Instance type: t3.micro (Free Tier eligible)
+- User data script to install and start Apache web server
+- Security group with ports 22 (SSH) and 80 (HTTP) open
+
+### 2. Created Auto Scaling Group
+- Name: my-asg-project
+- Linked to Launch Template
+- Minimum capacity: 2
+- Desired capacity: 2
+- Maximum capacity: 6
+- Deployed across multiple Availability Zones in ap-south-1
+
+### 3. Verified Initial Launch
+- ASG automatically launched 2 EC2 instances on creation
+- Both instances passed status checks and entered Running state
+
+### 4. Terminated One Instance Manually
+- Manually terminated one running instance via EC2 console
+- ASG detected the instance count dropped below minimum (2)
+- ASG automatically launched a replacement instance within 2 minutes
+- This proved the self-healing behavior of Auto Scaling Groups
+
+### 5. Increased Desired Capacity to 4
+- Edited ASG desired capacity from 2 → 4
+- ASG launched additional instances automatically
+- All 4 instances confirmed Running with status checks passed
+
+### 6. Cleaned Up All Resources
+- Deleted ASG (automatically terminated all instances)
+- Deleted Launch Template
+
+---
+
+## Key Results
+
+| Action | Outcome |
+|---|---|
+| Instance manually terminated | ASG replaced it in ~2 minutes |
+| Desired capacity increased to 4 | 2 new instances launched automatically |
+| All instances | Passed 3/3 status checks |
+
+---
+
+## Key Learnings
+- AWS retired Launch Configurations after May 2023 — 
+  Launch Templates are the modern equivalent with more features
+- ASG always maintains minimum capacity — self-healing is automatic
+- Desired capacity can be changed anytime without downtime
+- ASG Activity tab provides full audit trail of every scaling event
+- Deleting ASG first automatically terminates all instances inside it
+
+---
+
+## Architecture Decisions
+**Why Launch Template over Launch Configuration?**
+AWS officially retired Launch Configurations for new accounts after 
+May 2023. Launch Templates support versioning, more instance types, 
+and all new AWS features — making them the correct modern choice.
+
+**Why multiple AZs?**
+Distributing instances across AZs ensures the application stays 
+available even if one entire Availability Zone experiences an outage.
+
+---
