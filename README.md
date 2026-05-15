@@ -1,7 +1,7 @@
 # AWS Projects Portfolio
 
 A collection of hands-on AWS projects built while preparing 
-for the AWS Solutions Architect Associate certification.
+for the AWS and DevOps training
 
 ## Projects
 
