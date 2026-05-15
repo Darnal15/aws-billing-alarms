@@ -84,10 +84,14 @@ s3:GetObject.
 ---
 
 ## Screenshots
-![Website Live](screenshots/cloudfront-live.png)
-![S3 Access Denied](screenshots/s3-blocked.png)
-![CloudFront Distribution](screenshots/cloudfront-distribution.png)
-![S3 Bucket](screenshots/s3-bucket.png)
+![Website Live](<img width="902" height="400" alt="Screenshot 2026-05-15 113258" src="https://github.com/user-attachments/assets/d8c095f9-09db-4754-adb8-fe82dba268a6" />
+.png)
+![S3 Access Denied](<img width="755" height="425" alt="6" src="https://github.com/user-attachments/assets/27807e51-bd79-4b7d-92aa-ec908496e8a3" />
+.png)
+![CloudFront Distribution](<img width="941" height="373" alt="5" src="https://github.com/user-attachments/assets/bd870506-fd85-45a0-a5cb-c451722671aa" />
+.png)
+![S3 Bucket](<img width="935" height="392" alt="3" src="https://github.com/user-attachments/assets/a19b3fd5-6ec5-4353-a04d-9244e1d1920c" />
+.png)
 
 ---
 
